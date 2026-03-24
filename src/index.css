@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 7%;
+    --foreground: 180 10% 92%;
+
+    --card: 220 18% 10%;
+    --card-foreground: 180 10% 92%;
+
+    --popover: 220 18% 10%;
+    --popover-foreground: 180 10% 92%;
+
+    --primary: 170 80% 45%;
+    --primary-foreground: 220 20% 7%;
+
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 180 10% 85%;
+
+    --muted: 220 15% 14%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 170 80% 45%;
+    --accent-foreground: 220 20% 7%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 170 80% 45%;
+
+    --radius: 0.75rem;
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --glow-primary: 0 0 30px hsl(170 80% 45% / 0.3);
+    --glow-primary-lg: 0 0 60px hsl(170 80% 45% / 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-display);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-emerald-300;
+  }
+
+  .glow-border {
+    box-shadow: var(--glow-primary);
+    border-color: hsl(var(--primary));
+  }
+
+  .glow-border-lg {
+    box-shadow: var(--glow-primary-lg);
+    border-color: hsl(var(--primary));
+  }
+
+  .glass {
+    @apply bg-card/60 backdrop-blur-xl border border-border;
+  }
+
+  .section-container {
+    @apply max-w-6xl mx-auto px-6 py-20;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 3px;
+}
+
+/* Network background pattern */
+.network-bg {
+  background-image: 
+    radial-gradient(circle at 20% 80%, hsl(170 80% 45% / 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, hsl(170 80% 45% / 0.03) 0%, transparent 50%);
+}
